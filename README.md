@@ -11,6 +11,8 @@ play stage
 ./target/start
 ```
 
+   WARNING: the play application has to run in Prod mode (no `play run`), or the auto-reloading will prevent the REPL from working (too much classloader magic)
+
  - Browse to [http://localhost:9000/](http://localhost:9000/) and [http://localhost:9000/repl](http://localhost:9000/repl) for the REPL (with a modern browser).
 
  - Try changing some application state by typing in the REPL:
