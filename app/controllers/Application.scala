@@ -16,7 +16,5 @@ object Application extends Controller {
     Ok(views.html.repl())
   }
 
-  def replsocket = WebSocket.using[String] { request =>
-    playrepl.REPL.current
-  }
+  def replsocket = WebSocket.using[String] { request => playrepl.REPL.getNew }
 }
