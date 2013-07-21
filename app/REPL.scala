@@ -25,7 +25,7 @@ object REPL {
        case a => sys.error("oops: I was expecting an URLClassLoader, foud a " + a.getClass)
     }
     val classpath = urls map {_.toString}
-    println("yep")
+
     val settings = new Settings
     settings.classpath.value = classpath.distinct.mkString(java.io.File.pathSeparator)
 
