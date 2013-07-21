@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+<title>REPL</title>
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+<script type="text/javascript">
+	var host = "ws://localhost:9000/replsocket";
+</script>
+<script src="@routes.Assets.at("javascripts/repl.js")" type="text/javascript"></script>
+</head>
+<body>
+<div id="wrapper">
+
+    <div id="container">
+        <h1>REPL</h1>
+
+        <div id="content">
+
+        </div>
+        <p id="examples">just hit Enter to send.</p>
+
+        <input id="text" type="text" size="80" />
+
+    </div>
+
+</div>
+</body>
+</html>​
