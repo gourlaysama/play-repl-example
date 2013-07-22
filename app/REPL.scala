@@ -14,9 +14,7 @@ object REPL {
     // there has to be a better way to get the output of the REPL...
     val inStream = new PipedInputStream()
     val outStream = new PipedOutputStream(inStream)
-    val print = new PrintWriter(outStream)
-    val convert: Enumeratee[Array[Byte],String] = Enumeratee.map[Array[Byte]]{ a => new String(a) }
-    val out = Enumerator.fromStream(inStream).through(convert)
+    val out = Enumerator.fromStream(inStream).map(a => new String(a))
     // ... but the above works, sadly.
 
     // get the correct classpath...
@@ -29,6 +27,7 @@ object REPL {
     val settings = new Settings
     settings.classpath.value = classpath.distinct.mkString(java.io.File.pathSeparator)
 
+    val print = new PrintWriter(outStream)
     val interpreter = new IMain(settings, print){
       // ... and the correct classloader
       override protected def parentClassLoader = settings.getClass.getClassLoader()
