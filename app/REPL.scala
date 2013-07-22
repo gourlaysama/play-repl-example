@@ -34,9 +34,9 @@ object REPL {
       override protected def parentClassLoader = settings.getClass.getClassLoader()
     }
 
-    val in = Iteratee.foreach[String] { code => 
-      // the stream needs to be closed one way or another
-      if (":quit" equalsIgnoreCase code) outStream.close else interpreter.interpret(code) 
+    val in = Iteratee.foreach[String] { code => interpreter.interpret(code) }.map { _ => 
+      interpreter.close
+      outStream.close 
     }
     (in, out)
   }
