@@ -44,7 +44,7 @@ function send(){
     }
     try{
         socket.send(text);
-        message('<p class="mesage">'+text)
+        message('<br /><p class="message">scala> '+text)
     } catch(exception){
    	message('<p class="warning"> Error:' + exception);
     }
