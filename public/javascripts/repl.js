@@ -17,7 +17,7 @@ function connect(){
         }
 
         socket.onmessage = function(msg){
-       		 message('<p class="message">'+msg.data);
+       		 message('<p class="message"><pre>' + msg.data + '</pre>');
         }
 
         socket.onclose = function(){
@@ -44,7 +44,7 @@ function send(){
     }
     try{
         socket.send(text);
-        message('<br /><p class="message">scala> '+text)
+        message('<br /><p class="message"><pre>scala> '+text+'</pre>')
     } catch(exception){
    	message('<p class="warning"> Error:' + exception);
     }
