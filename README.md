@@ -4,14 +4,14 @@ An example of a *very* simple client that interfaces (through WebSockets) with a
 
 ## Running
 
- - Compile and `stage` (or `dist`) the project and then run it:
+ - Compile in dev mode (`run`) or prod mode (`stage` or `dist`)
 
    ```sh
+play run
+# or
 play stage
 ./target/start
 ```
-
-   WARNING: the play application has to run in Prod mode (no `play run`), or the auto-reloading will prevent the REPL from working (too much classloader magic)
 
  - Browse to [http://localhost:9000/](http://localhost:9000/) and [http://localhost:9000/repl](http://localhost:9000/repl) for the REPL (with a modern browser).
 

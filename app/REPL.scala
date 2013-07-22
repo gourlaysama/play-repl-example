@@ -17,7 +17,7 @@ object REPL {
   def getNew: (Iteratee[String, Unit], Enumerator[String]) = {
     def buildSettings(): Settings = {
       // get the correct classpath...
-      val urls = java.lang.Thread.currentThread.getContextClassLoader match {
+      val urls = Play.classloader match {
         case cl: java.net.URLClassLoader => cl.getURLs.toList
         case a => sys.error("oops: I was expecting an URLClassLoader, foud a " + a.getClass)
       }
@@ -27,7 +27,7 @@ object REPL {
       settings.classpath.value = classpath.distinct.mkString(java.io.File.pathSeparator)
 
       // and the correct classLoader
-      settings.embeddedDefaults(settings.getClass.getClassLoader())
+      settings.embeddedDefaults(Play.classloader)
 
       settings
     }
